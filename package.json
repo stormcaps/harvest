@@ -1,0 +1,15 @@
+{
+  "name": "harvest",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude Code plugin: turn links into knowledge your project keeps.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "harvest": "node scripts/harvest.mjs"
+  }
+}

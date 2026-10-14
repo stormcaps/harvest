@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "harvest",
+  "displayName": "Harvest",
+  "version": "1.0.0",
+  "description": "Turn a link into knowledge your project keeps: reels, videos, threads, posts, repos and articles, read at the lowest cost, triaged against what the project already has, audited before anything is imported, and filed where its agents will find it.",
+  "author": {
+    "name": "stormcaps",
+    "url": "https://github.com/stormcaps"
+  },
+  "homepage": "https://github.com/stormcaps/harvest",
+  "repository": "https://github.com/stormcaps/harvest",
+  "license": "MIT",
+  "keywords": ["knowledge", "youtube", "instagram", "tiktok", "twitter", "reddit", "hackernews", "github", "transcript", "research", "skills"]
+}

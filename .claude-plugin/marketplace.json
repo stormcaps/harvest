@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "harvest",
+  "description": "Harvest: turn links (reels, videos, threads, repos, articles) into knowledge your project keeps.",
+  "owner": {
+    "name": "stormcaps",
+    "url": "https://github.com/stormcaps"
+  },
+  "plugins": [
+    {
+      "name": "harvest",
+      "source": "./",
+      "description": "Turn a link into knowledge your project keeps: read at the lowest cost, triaged, audited, filed where agents find it.",
+      "category": "productivity",
+      "tags": ["knowledge", "research", "video", "social", "transcript"]
+    }
+  ]
+}
