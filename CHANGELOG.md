@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1 — 2026-10-14
+
+- GitHub is read anonymously: the plugin no longer reads a GitHub token from the
+  environment. A plugin should not take a credential it was not given and send it to a server;
+  60 API requests an hour is two per repository read.
+- README: one-command install, the sources table, a real run as the demo image, a comparison,
+  the complete list of what the plugin contacts and starts, and an FAQ.
+
 ## 1.0.0 — 2026-10-14
 
 First release.

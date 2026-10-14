@@ -17,7 +17,7 @@ and follow its steps 1 to 8 for this link; the notes below are what is specific 
 ## What is specific to GitHub
 
 - **Tier 0** downloads one commit's archive to the plugin's work folder (no clone, no history), inventories
-  it, and audits it. Anonymous GitHub API calls are limited to 60/hour; set `GITHUB_TOKEN` to lift it.
+  it, and audits it. GitHub is read anonymously: 60 API requests an hour, two per repository.
 - **Already harvested?** `H profile --find <url>` finds the source line, which records the commit;
   `H read <url> --since <sha>` then lists only what changed.
 - **Read the content, not the names.** Read the README, then open every file whose idea we might

@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "harvest",
   "displayName": "Harvest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turn a link into knowledge your project keeps: reels, videos, threads, posts, repos and articles, read at the lowest cost, triaged against what the project already has, audited before anything is imported, and filed where its agents will find it.",
   "author": {
     "name": "stormcaps",

@@ -5,10 +5,11 @@ import { join, relative, extname, basename } from "node:path";
 import { fetchJson, workDir, run, tool, sizeOf } from "../util.mjs";
 import { audit, walk } from "../audit.mjs";
 
-function headers() {
-  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
-  return { Accept: "application/vnd.github+json", ...(token ? { Authorization: `Bearer ${token}` } : {}) };
-}
+/**
+ * Anonymous on purpose: the plugin never reads a credential from the user's environment to send
+ * it to a server. 60 requests an hour, two per repository read.
+ */
+const headers = () => ({ Accept: "application/vnd.github+json" });
 
 const KINDS = [
   ["skill", /(^|\/)SKILL\.md$/i],
@@ -36,7 +37,7 @@ export async function github({ url, id, focus }, { since } = {}) {
   const base = { source: "github", url, id, focus: focus ?? null };
   const t0 = Date.now();
   const repo = await fetchJson(`https://api.github.com/repos/${id}`, { headers: headers() });
-  if (!repo.json) return { ...base, error: `GitHub API ${repo.status}${repo.status === 403 ? " (rate limit: set GITHUB_TOKEN)" : ""}` };
+  if (!repo.json) return { ...base, error: `GitHub API ${repo.status}${repo.status === 403 || repo.status === 429 ? " — anonymous rate limit (60 requests an hour) reached; try again later" : ""}` };
   const r = repo.json;
   if (r.size > MAX_REPO_KB)
     return { ...base, error: `the repository is ${Math.round(r.size / 1024)} MB; harvest downloads up to ${MAX_REPO_KB / 1024} MB — read the files you need from their raw links` };

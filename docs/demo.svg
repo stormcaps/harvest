@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="500" viewBox="0 0 880 500" role="img" aria-labelledby="t d">
+  <title id="t">Harvest run on an Instagram reel</title>
+  <desc id="d">One real harvest (2026-10-14) of a 46-second reel whose caption only says "comment CODING for the links": caption, local speech-to-text and one contact sheet; one tool adopted because it answers the project's stated pain, three rejected with reasons, nothing installed, temp media deleted.</desc>
+  <style>
+    .bg { fill: #0f1115; }
+    .bar { fill: #1a1d24; }
+    text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: 14px; fill: #d6dae2; }
+    .dim { fill: #8a93a6; }
+    .cmd { fill: #f0f3f8; font-weight: 600; }
+    .h { fill: #ffffff; font-weight: 700; }
+    .ok { fill: #6fd38a; font-weight: 700; }
+    .no { fill: #f08a8a; font-weight: 700; }
+    .acc { fill: #8ab4ff; }
+  </style>
+  <rect class="bg" width="880" height="500" rx="12"/>
+  <rect class="bar" width="880" height="34" rx="12"/>
+  <rect class="bar" y="22" width="880" height="12"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f57"/><circle cx="42" cy="17" r="6" fill="#febc2e"/><circle cx="62" cy="17" r="6" fill="#28c840"/>
+  <text x="440" y="22" text-anchor="middle" class="dim">claude — my-todo-app</text>
+
+  <text x="24" y="66"><tspan class="acc">&gt;</tspan> <tspan class="cmd">/harvest:instagram https://www.instagram.com/reel/…</tspan></text>
+
+  <text x="24" y="104" class="h">## Harvest — "Your Claude Code is running at 0/4 power" (Instagram reel)</text>
+  <text x="24" y="128" class="dim">Read: caption · local speech-to-text · contact sheet of 6 shots</text>
+  <text x="24" y="148" class="dim">53 s · 4.1 MB fetched · 17.4 MB deleted · nothing written to the project</text>
+
+  <text x="24" y="182" class="dim">Pain found in README: "UI bugs are hard to debug, we only test by hand in the browser"</text>
+
+  <text y="218" class="h"><tspan x="24">Item</tspan><tspan x="214">Verdict</tspan><tspan x="314">Why</tspan></text>
+  <text y="242"><tspan x="24">Chrome DevTools MCP</tspan><tspan x="214" class="ok">ADOPTED</tspan><tspan x="314">answers the stated pain · repo audited:</tspan></text>
+  <text x="314" y="262" class="dim">telemetry on by default → proposed pinned,</text>
+  <text x="314" y="282" class="dim">with --no-usage-statistics</text>
+  <text y="306"><tspan x="24">Supabase plugin</tspan><tspan x="214" class="no">REJECTED</tspan><tspan x="314">need absent: offline app, no database</tspan></text>
+  <text y="330"><tspan x="24">Vercel plugin</tspan><tspan x="214" class="no">REJECTED</tspan><tspan x="314">need absent: nothing deployed, no git remote</tspan></text>
+  <text y="354"><tspan x="24">oh-my-claudecode</tspan><tspan x="214" class="no">REJECTED</tspan><tspan x="314">need absent · owner read off the contact sheet</tspan></text>
+
+  <text x="24" y="394" class="h">Waiting for your OK</text>
+  <text x="24" y="418">claude mcp add chrome-devtools -- npx -y chrome-devtools-mcp@1.10.1 \</text>
+  <text x="48" y="438">--no-usage-statistics --no-performance-crux</text>
+
+  <text x="24" y="476" class="dim">Comments not read, on purpose. Engagement bait flagged: the links were never in the caption.</text>
+</svg>

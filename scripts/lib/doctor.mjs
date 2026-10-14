@@ -55,7 +55,6 @@ export function doctor() {
     whisperModel: model,
     deno: Boolean(which("deno")),
     gh: Boolean(which("gh")),
-    githubToken: Boolean(process.env.GITHUB_TOKEN || process.env.GH_TOKEN),
   };
 }
 
@@ -77,7 +76,7 @@ export function renderDoctor(d) {
   out.push(
     "",
     `JavaScript runtime for YouTube: ${d.deno ? "Deno" : "Node (passed to yt-dlp automatically — Deno is not needed)"}`,
-    `GitHub API: ${d.githubToken ? "authenticated (GITHUB_TOKEN)" : "anonymous, 60 requests/hour — set GITHUB_TOKEN for more"}`,
+    "GitHub API: anonymous, 60 requests an hour (two per repository read)",
   );
   return out.join("\n");
 }
