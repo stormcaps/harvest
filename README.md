@@ -179,6 +179,10 @@ test/             offline tests on synthetic fixtures
 Tests never touch the network. A new source is welcome as an issue first, with the public
 endpoint it would use and a measurement of what it returns.
 
+**Releasing:** bump `version` in `.claude-plugin/plugin.json` and add a `CHANGELOG.md` entry with
+every published change. Claude Code updates an installed plugin only when that version changes —
+commits alone never reach users.
+
 ## License
 
 [MIT](LICENSE)
