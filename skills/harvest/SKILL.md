@@ -35,6 +35,28 @@ command, and anything else stops for approval.
    a search whose scope you state, with a witness (a nearby term that *does* match, proving the
    search can see). An item judged by its title alone is UNVERIFIED, not REJECTED.
 5. **Nothing is installed, enabled or imported without the user's yes.** You propose; they decide.
+6. **Several links means several full harvests.** See below.
+
+## Several links in one request
+
+Each link gets the harvest it would get alone: every tier it needs, every item triaged, filed,
+cleaned and reported. A list of links is never a reason for a lighter pass. Don't stop to ask how
+to split the work: the user already asked for all of it.
+
+| | When | How |
+| :-- | :-- | :-- |
+| **One after another** (the default) | the links may land in the same files, or the session is still light | finish link 1 (filed, cleaned, reported), then start link 2. Say in one line which link is next |
+| **In parallel** (separate sessions or sub-agents) | the links are independent (they file into different places) and this session's context is already heavy | each worker receives the link, this method in full, and the project's location; each writes its own report. Two workers never edit the same file: give each its own files, or run those links one after another |
+
+Never:
+
+- one combined skim of all the links, or one triage table shared between them;
+- "the others can be done later" without doing them, or without saying exactly what is left;
+- dropping a tier or a check on the later links to finish faster.
+
+If one link cannot be finished (a login wall, a missing tier), say what is missing for it, and
+still finish the others. More than two large repositories in one session dilutes the reading:
+that is the case for parallel workers, or for one session per repository.
 
 ## 1 · Already harvested?
 
@@ -65,8 +87,7 @@ Then read what is specific to that source: `H guide <source>` (the `source:` lin
   the work folder; read it there. `clean` deletes it with the rest.
 - A browser tool that writes files (Playwright writes into the working directory) leaves debris:
   delete what **this run** created, and nothing else.
-- Several links: one at a time, each closed before the next. More than two large repos in one
-  session dilutes the reading — say so and suggest one session per repo.
+- Several links: each one gets its own full harvest — see **Several links in one request**.
 - Long transcripts: read them by slices, never whole — `H guide reading`.
 
 ## 3 · Write down what the source actually says

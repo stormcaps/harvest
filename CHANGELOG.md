@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.2 — 2026-11-06
+
+- Several links in one request: each link now gets the full harvest it would get alone, with
+  no lighter pass for the later ones and no stop to ask how to split the work. The skill says
+  when to run them one after another (the default, or when they may land in the same files) and
+  when to hand them to parallel workers (independent links, a heavy session), and what is never
+  acceptable: one combined skim, a shared triage table, "the rest later".
+
 ## 1.0.1 — 2026-10-14
 
 - GitHub is read anonymously: the plugin no longer reads a GitHub token from the
