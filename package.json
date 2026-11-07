@@ -1,6 +1,6 @@
 {
   "name": "harvest",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Claude Code plugin: turn links into knowledge your project keeps.",
   "type": "module",

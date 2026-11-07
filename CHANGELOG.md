@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.3 — 2026-11-07
+
+- The `hidden-unicode` audit rule now sees the invisible characters it used to miss: zero-width
+  joiners and non-joiners (U+200C, U+200D), the Mongolian vowel separator (U+180E), variation
+  selectors (U+FE00–U+FE0F) and ideographic variation selectors (U+E0100–U+E01EF). A run of
+  variation selectors is the usual way to smuggle bytes into text that renders as nothing.
+- These characters are also needed by real text, so each is flagged only outside the context that
+  needs it: emoji sequences, keycaps, Persian, Arabic, Devanagari, Han and Mongolian stay quiet. A
+  run of joiners is always flagged.
+- Measured before release on about 9,000 text files of real multilingual projects (French,
+  Arabic, emoji-heavy docs): no new flag on prose. The only new flags were variation selectors
+  pasted as literal characters inside regular expressions in code, which a reader cannot see.
+  The soft hyphen (U+00AD) was left out: it shows up in published translations.
+- Two new tests, built from code points so the test file itself carries no invisible character.
+
 ## 1.0.2 — 2026-11-06
 
 - Several links in one request: each link now gets the full harvest it would get alone, with

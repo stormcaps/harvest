@@ -26,6 +26,32 @@ export function walk(root, max = 20000) {
   return out;
 }
 
+/**
+ * Characters that render as nothing. Some are always suspicious in a repo; others are needed by
+ * real text, so they are flagged only outside the context that needs them:
+ * - zero-width joiner / non-joiner: emoji sequences (U+1F468 U+200D U+1F4BB) and scripts such as
+ *   Persian or Devanagari use them next to letters or marks; between Latin letters they only hide;
+ * - variation selectors: one after an emoji or a keycap digit picks its style (U+2764 U+FE0F,
+ *   "1" U+FE0F U+20E3); a run of them, or one after plain ASCII text, is how bytes are smuggled
+ *   into text that shows nothing;
+ * - ideographic variation selectors belong after a Han character, the Mongolian vowel separator
+ *   inside Mongolian text.
+ */
+const JOIN_NEIGHBOUR = String.raw`\p{Extended_Pictographic}\p{Emoji_Modifier}\p{M}\uFE0F[\p{L}--\p{Script=Latin}]`;
+const HIDDEN_UNICODE = new RegExp(
+  [
+    String.raw`[\u200B\u202A-\u202E\u2066-\u2069\u2060-\u2064\u{E0000}-\u{E007F}]`,
+    String.raw`(?<!^)\uFEFF`,
+    String.raw`(?<!\p{Script=Mongolian})\u180E`,
+    String.raw`(?<![${JOIN_NEIGHBOUR}])[\u200C\u200D](?![${JOIN_NEIGHBOUR}])`,
+    String.raw`[\u200C\u200D]{2,}`,
+    String.raw`[\uFE00-\uFE0F\u{E0100}-\u{E01EF}]{2,}`,
+    String.raw`(?<=^|[\x00-\x22\x24-\x29\x2B-\x2F\x3A-\x7F])[\uFE00-\uFE0F]`,
+    String.raw`(?<!\p{Script=Han})[\u{E0100}-\u{E01EF}]`,
+  ].join("|"),
+  "v",
+);
+
 /** Each rule: where it applies, what it matches, and why a reader should care. */
 const RULES = [
   {
@@ -74,7 +100,7 @@ const RULES = [
     id: "hidden-unicode",
     sev: "high",
     files: /\.(md|txt|mdx|json|ya?ml|m?[jt]s|py)$/i,
-    re: /[\u200B\u202A-\u202E\u2066-\u2069\u2060-\u2064\u{E0000}-\u{E007F}]|(?<!^)\uFEFF/u,
+    re: HIDDEN_UNICODE,
     why: "invisible or bidirectional characters can hide instructions or code",
   },
   {
